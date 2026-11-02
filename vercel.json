@@ -1,12 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/privacy-policy/",
-      "destination": "/privacy-policy.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -30,7 +24,7 @@
       ]
     },
     {
-      "source": "/assets/kelatos-logo.webp",
+      "source": "/assets/dreamecenter-logo.webp",
       "headers": [
         {
           "key": "Cache-Control",
@@ -39,7 +33,7 @@
       ]
     },
     {
-      "source": "/assets/kelatos-icon.webp",
+      "source": "/assets/dreamecenter-icon.webp",
       "headers": [
         {
           "key": "Cache-Control",

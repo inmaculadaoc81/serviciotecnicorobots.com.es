@@ -12,7 +12,7 @@ module.exports=async(req,res)=>{
   const port=Number(process.env.SMTP_PORT||465);
   const tr=nodemailer.createTransport({host:process.env.SMTP_HOST,port,secure:String(process.env.SMTP_SECURE??"true")==="true",auth:{user:process.env.SMTP_USER,pass:process.env.SMTP_PASS}});
   const fecha=new Date().toLocaleString("es-ES",{timeZone:"Europe/Madrid"});
-  await tr.sendMail({from:`"Kelatos Informática" <${process.env.SMTP_USER}>`,to:process.env.CONTACT_EMAIL||process.env.SMTP_USER,replyTo:email,subject:`Nueva consulta web: ${averia||"Otra consulta"} - ${nombre}`,text:`Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nEquipo / proyecto: ${modelo||"-"}\nTipo de consulta: ${averia||"-"}\n\nMensaje:\n${mensaje}\n\nPolítica de privacidad aceptada: sí (${fecha})`});
+  await tr.sendMail({from:`"DreameCenter" <${process.env.SMTP_USER}>`,to:process.env.CONTACT_EMAIL||process.env.SMTP_USER,replyTo:email,subject:`Nueva consulta web: ${averia||"Otra consulta"} - ${nombre}`,text:`Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nModelo de robot: ${modelo||"-"}\nTipo de consulta: ${averia||"-"}\n\nMensaje:\n${mensaje}\n\nPolítica de privacidad aceptada: sí (${fecha})`});
   return res.status(200).json({ok:true});
- }catch(e){console.error("Kelatos Informática contacto:",e);return res.status(500).json({ok:false,error:"No se pudo enviar"})}
+ }catch(e){console.error("DreameCenter contacto:",e);return res.status(500).json({ok:false,error:"No se pudo enviar"})}
 };
