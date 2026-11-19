@@ -1,6 +1,25 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/blog.js": {
+      "includeFiles": "index.html"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/blog",
+      "destination": "/api/blog"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/api/blog?slug=:slug"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
